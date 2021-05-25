@@ -165,9 +165,9 @@ r=r(1);
 m=(l+r)/2;
 for i=linspace(1,iter,iter)
     m=(l+r)/2;
-    plot(l,f(l),'x');
-    plot((l+r)/2,f((l+r)/2),'x');
-    plot(r,f(r),'x');
+    %plot(l,f(l),'x');
+    %plot((l+r)/2,f((l+r)/2),'x');
+    %plot(r,f(r),'x');
     if(abs(f(m))<eps)
         break;
     end
@@ -178,6 +178,7 @@ for i=linspace(1,iter,iter)
     end
 end
 if(abs(f(m))<eps)
+    plot(m,f(m),'*');
     disp(m);
 else
     disp('Корней на отрезке не обнаружено');
@@ -197,9 +198,9 @@ r=r(1);
 m=(l+r)/2;
 for i=linspace(1,iter,iter)
     m=(l+r)/2;
-    plot(l,f(l),'x');
-    plot(m,f(m),'x');
-    plot(r,f(r),'x');
+    %plot(l,f(l),'x');
+    %plot(m,f(m),'x');
+    %plot(r,f(r),'x');
     if(abs(f(m))<eps)
         break;
     end
@@ -210,6 +211,7 @@ for i=linspace(1,iter,iter)
     end
 end
 if(abs(f(m))<eps)
+    plot(m,f(m),'*');
     disp(m);
 else
     disp('Корней на отрезке не обнаружено');
@@ -229,9 +231,9 @@ r=r(1);
 m=(l+r)/2;
 for i=linspace(1,iter,iter)
     m=(l+r)/2;
-    plot(l,f(l),'x');
-    plot(m,f(m),'x');
-    plot(r,f(r),'x');
+    %plot(l,f(l),'x');
+    %plot(m,f(m),'x');
+    %plot(r,f(r),'x');
     if(abs(f(m))<eps)
         break;
     end
@@ -242,6 +244,7 @@ for i=linspace(1,iter,iter)
     end
 end
 if(abs(f(m))<eps)
+    plot(m,f(m),'*');
     disp(m);
 else
     disp('Корней на отрезке не обнаружено');

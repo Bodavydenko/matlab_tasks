@@ -64,12 +64,11 @@ plot(e,exp(1./(1-e.^2))./(1+e.^2),'x');
 hold off;
 %% %Task8
 syms x;
-f=matlabFunction(sin(x)/(x^2+1));
-xmin = fminbnd(func, -5, 5);
+f=matlabFunction(sin(x)./(x^2+1));
 hold on
 plot(linspace(-5,5,100),f(linspace(-5,5,100)));
-g=matlabFunction(-sin(x)/(x^2+1));
-plot([fminbnd(func,-5,5),fminbnd(g,-5,5)],f([fminbnd(func,-5,5),fminbnd(g,-5,5)]),'x')
+g=matlabFunction(-sin(x)./(x^2+1));
+plot([fminbnd(f,-5,5),fminbnd(g,-5,5)],f([fminbnd(f,-5,5),fminbnd(g,-5,5)]),'x')
 hold off
 %% %Task9
 syms t u;
