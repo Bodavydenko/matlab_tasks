@@ -10,8 +10,8 @@ subplot(2,1,1);
 hold on;
 x=linspace(-1*max(abs(roots(p))),max(abs(roots(p))),1000);
 plot(x,polyval(p,x),'Color','r');
-plot(x,polyval([polyval(polyder(p),max(abs(roots(p)))/2),polyval(p,max(abs(roots(p)))/2)-polyval(polyder(p),max(abs(roots(p)))/2)*(max(abs(roots(p)))/2)],x),'Color','g');
-plot(x,polyval([-1/polyval(polyder(p),-max(abs(roots(p)))/2),polyval(p,-max(abs(roots(p)))/2)+1/(polyval(polyder(p),-max(abs(roots(p)))/2))*(-max(abs(roots(p)))/2)],x),'Color','b');
+plot(x,polyval([polyval(polyder(p),max(abs(roots(p)))/2),polyval(p,max(abs(roots(p)))/2)-polyval(polyder(p),max(abs(roots(p)))/2)*(max(abs(roots(p)))/2)],x),'g');
+plot(x,polyval([-1/polyval(polyder(p),-max(abs(roots(p)))/2),polyval(p,-max(abs(roots(p)))/2)+1/(polyval(polyder(p),-max(abs(roots(p)))/2))*(-max(abs(roots(p)))/2)],x),'b');
 hold off;
 axis equal;
 subplot(2,1,2);
@@ -70,19 +70,19 @@ n=10;
 hold on;
 p=(vander(linspace(1,n,n))^-1)*(linspace(1,n,n).^-1)';
 roots(p)
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','r');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'r');
 p=(vander([-1,0,1,2,3])^-1)*[6;5;0;3;2];
 roots(p)
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','g');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'g');
 hold off;
 %% %Task8
 hold on;
 p=[1,-2,-8,13,-24];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','r');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'r');
 p=[1,0,-7,-12,6,36];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','g');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'g');
 p=[4,0,-7,-5-1];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','b');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'b');
 hold off;
 
 %% %Task9
