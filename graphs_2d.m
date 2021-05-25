@@ -1,5 +1,4 @@
 %% %example2
-
 phi=linspace(0,2*pi,360);
 r=sin(phi)./phi;
 x=r.*cos(phi);
@@ -8,7 +7,16 @@ plot(x,y);
 %% %example3
 x=linspace(0,2,300);
 y=humps(x);
+hold on;
 plot(x,y);
+[e,i]=fminbnd(@(x)-1.*humps(x),0,2);
+plot(e,humps(e),'rx');
+for i=x
+   if(humps(i)>=20&&humps(i)<=40)
+      plot(i,humps(i),'g*'); 
+   end
+end
+hold off;
 %% %Task1
 x=linspace(-50,50,500);
 y=x+1./(x.^2);
