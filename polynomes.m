@@ -10,12 +10,16 @@ subplot(2,1,1);
 hold on;
 x=linspace(-1*max(abs(roots(p))),max(abs(roots(p))),1000);
 plot(x,polyval(p,x),'Color','r');
-plot(x,polyval([polyval(polyder(p),max(abs(roots(p)))/2),polyval(p,max(abs(roots(p)))/2)-polyval(polyder(p),max(abs(roots(p)))/2)*(max(abs(roots(p)))/2)],x),'g');
-plot(x,polyval([-1/polyval(polyder(p),-max(abs(roots(p)))/2),polyval(p,-max(abs(roots(p)))/2)+1/(polyval(polyder(p),-max(abs(roots(p)))/2))*(-max(abs(roots(p)))/2)],x),'b');
+plot(x,polyval([polyval(polyder(p),max(abs(roots(p)))/2),polyval(p,max(abs(roots(p)))/2)-polyval(polyder(p),max(abs(roots(p)))/2)*(max(abs(roots(p)))/2)],x),'Color','g');
+plot(x,polyval([-1/polyval(polyder(p),-max(abs(roots(p)))/2),polyval(p,-max(abs(roots(p)))/2)+1/(polyval(polyder(p),-max(abs(roots(p)))/2))*(-max(abs(roots(p)))/2)],x),'Color','b');
 hold off;
 axis equal;
 subplot(2,1,2);
+hold on;
 plot(real(roots(p)),imag(roots(p)),'x');
+r=real(roots(p));
+r=r(1);
+plot(r*cos(linspace(0,pi*2,100)),r*sin(linspace(0,pi*2,100)));
 hold off;
 %% %Task3
 format rational;
@@ -70,19 +74,19 @@ n=10;
 hold on;
 p=(vander(linspace(1,n,n))^-1)*(linspace(1,n,n).^-1)';
 roots(p)
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'r');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','r');
 p=(vander([-1,0,1,2,3])^-1)*[6;5;0;3;2];
 roots(p)
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'g');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','g');
 hold off;
 %% %Task8
 hold on;
 p=[1,-2,-8,13,-24];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'r');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','r');
 p=[1,0,-7,-12,6,36];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'g');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','g');
 p=[4,0,-7,-5-1];
-plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'b');
+plot(linspace(min(roots(p)),max(roots(p)),1000),polyval(p,linspace(min(roots(p)),max(roots(p)),1000)),'Color','b');
 hold off;
 
 %% %Task9
@@ -97,13 +101,36 @@ end
 %% %Task10
 f=[1,2,-1,-4,-2];
 g=[1,1,-1,-2,-2];
-[G,S,T]=gcd(f,g)
+[G,S,T]=gcd(f,g);
+disp('НОД:');
+disp(poly2sym(G));
+disp('Линейное разложение:');
+disp('F(x)*');
+disp(poly2sym(S));
+disp('+G(x)*');
+disp(poly2sym(T));
 f=[1,3,1,1,3,1];
 g=[0,1,2,0,1,2];
-[G,S,T]=gcd(f,g)
+[G,S,T]=gcd(f,g);
+disp('НОД:');
+disp(poly2sym(G));
+disp('Линейное разложение:');
+disp('F(x)*');
+disp(poly2sym(S));
+disp('+G(x)*');
+disp(poly2sym(T));
 f=[4,-2,16,5,9];
 g=[0,2,-1,-5,4];
-[G,S,T]=gcd(f,g)
+[G,S,T]=gcd(f,g);
+disp('НОД:');
+disp(poly2sym(G));
+disp('Линейное разложение:');
+disp('F(x)*');
+disp(poly2sym(S));
+disp('+G(x)*');
+disp(poly2sym(T));
 %% %Task11
 a=ones(100,1);
+p=poly(a)
+r=roots(a)
 plot(linspace(-5,5,1000),polyval(poly(a),linspace(-5,5,1000)));
